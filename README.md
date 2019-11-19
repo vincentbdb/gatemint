@@ -1,6 +1,9 @@
 cd ~/go/src/github.com/
+
 git clone https://github.com/vincentbdb/go-algorand.git tmgo
+
 cd tmgo
+
 make tools install
 
 
