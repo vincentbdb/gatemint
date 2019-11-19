@@ -17,8 +17,8 @@
 package logic
 
 import (
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Program is byte code to be interpreted for validating transactions.

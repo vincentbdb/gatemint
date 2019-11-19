@@ -19,10 +19,10 @@ package basics
 import (
 	"reflect"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Status is the delegation status of an account's MicroAlgos

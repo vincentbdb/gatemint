@@ -26,9 +26,9 @@ import (
 
 	"github.com/google/go-querystring/query"
 
-	"github.com/algorand/go-algorand/auction"
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/auction"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // Rest Client for Auction Console API

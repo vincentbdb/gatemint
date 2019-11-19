@@ -20,7 +20,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // LoggingResponseWriter will encapsulate a standard ResponseWriter with a copy of its statusCode

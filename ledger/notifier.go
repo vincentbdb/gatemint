@@ -21,8 +21,8 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/data/bookkeeping"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/bookkeeping"
 )
 
 // BlockListener represents an object that needs to get notified on new blocks.

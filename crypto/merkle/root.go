@@ -17,8 +17,8 @@
 package merkle
 
 import (
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // Root returns the root of a merkle tree with the leaves given as input

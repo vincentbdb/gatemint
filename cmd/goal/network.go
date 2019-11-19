@@ -23,8 +23,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/algorand/go-algorand/netdeploy"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/netdeploy"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 var networkRootDir string

@@ -51,7 +51,7 @@ func (f *goalExpectFixture) initialize(t *testing.T) (err error) {
 	}
 	f.testDataDir = os.Getenv("TESTDATADIR")
 	if f.testDataDir == "" {
-		f.testDataDir = os.ExpandEnv("${GOPATH}/src/github.com/algorand/go-algorand/test/testdata")
+		f.testDataDir = os.ExpandEnv("${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata")
 	}
 
 	f.testFilter = os.Getenv("TESTFILTER")

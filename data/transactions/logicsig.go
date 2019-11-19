@@ -19,7 +19,7 @@ package transactions
 import (
 	"bytes"
 
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 // LogicSig contains logic for validating a transaction.

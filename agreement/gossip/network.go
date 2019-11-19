@@ -22,11 +22,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/algorand/go-algorand/agreement"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/network"
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/util/metrics"
+	"github.com/vincentbdb/go-algorand/agreement"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/util/metrics"
 )
 
 var (

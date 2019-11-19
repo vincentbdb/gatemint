@@ -20,8 +20,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // TODO put these in config

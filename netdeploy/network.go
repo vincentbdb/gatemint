@@ -25,12 +25,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/nodecontrol"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/nodecontrol"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 const configFileName = "network.json"

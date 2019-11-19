@@ -17,8 +17,8 @@
 package pools
 
 import (
-	"github.com/algorand/go-algorand/data/transactions"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/data/transactions"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 type lsigEvalSubcache map[protocol.ConsensusVersion]map[transactions.Txid]error

@@ -24,11 +24,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/algorand/go-algorand/crypto"
-	v1 "github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/data/transactions"
-	"github.com/algorand/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/crypto"
+	v1 "github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/transactions"
+	"github.com/vincentbdb/go-algorand/libgoal"
 )
 
 // PrepareAccounts to set up accounts and asset accounts required for Ping Pong run

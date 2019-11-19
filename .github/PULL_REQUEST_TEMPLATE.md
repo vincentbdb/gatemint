@@ -2,7 +2,7 @@
 Thanks for submitting a pull request! We appreciate the time and effort you spent to get this far.
 
 If you haven't already, please make sure that you've reviewed the CONTRIBUTING guide:
-https://github.com/algorand/go-algorand/blob/master/CONTRIBUTING.md#code-guidelines
+https://github.com/vincentbdb/go-algorand/blob/master/CONTRIBUTING.md#code-guidelines
 
 In particular ensure that you've run the following:
 * make generate

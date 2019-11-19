@@ -27,8 +27,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 // Devnet identifies the 'development network' use for development and not generally accessible publicly

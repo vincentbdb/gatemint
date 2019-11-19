@@ -19,7 +19,7 @@ package main
 import (
 	"golang.org/x/sys/unix"
 
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 const mlockallFlags = unix.MCL_CURRENT | unix.MCL_FUTURE | unix.MCL_ONFAULT

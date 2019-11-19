@@ -22,8 +22,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 // GoalFixture is a fixture for tests against the goal CLI

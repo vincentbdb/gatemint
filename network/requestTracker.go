@@ -25,9 +25,9 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 const (

@@ -38,7 +38,7 @@ aws s3 cp s3://algorand-releases/channel/${CHANNEL}/node_${CHANNEL}_linux-amd64_
 ```
 Change directory to the go-algorand/docker/release directory:
 ```cmd
-cd ${GOPATH}/src/github.com/algorand/go-algorand/docker/release/
+cd ${GOPATH}/src/github.com/vincentbdb/go-algorand/docker/release/
 ```
 Run the build_algod_docker.sh script to build the docker image:
 ```cmd

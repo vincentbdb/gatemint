@@ -17,10 +17,10 @@
 package client
 
 import (
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/data/transactions"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/data/transactions"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Version wraps kmdapi.VersionsRequest

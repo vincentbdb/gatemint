@@ -39,11 +39,11 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/util/metrics"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/util/metrics"
 )
 
 const sendBufferLength = 1000

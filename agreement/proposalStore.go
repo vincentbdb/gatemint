@@ -19,7 +19,7 @@ package agreement
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // An blockAssembler contains the proposal data associated with some

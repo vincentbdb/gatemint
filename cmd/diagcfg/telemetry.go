@@ -23,8 +23,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 var (

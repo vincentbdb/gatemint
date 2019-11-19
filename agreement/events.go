@@ -19,8 +19,8 @@ package agreement
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // An event represents the communication of an event to a state machine.

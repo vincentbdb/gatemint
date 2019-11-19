@@ -25,10 +25,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/util"
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 const genesisFolderName = "genesisdata"

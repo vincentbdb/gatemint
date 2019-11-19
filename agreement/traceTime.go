@@ -19,8 +19,8 @@ package agreement
 import (
 	"time"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 // We call all of the following messages post-filtering, such that

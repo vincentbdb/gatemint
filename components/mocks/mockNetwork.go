@@ -20,8 +20,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/algorand/go-algorand/network"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // MockNetwork is a dummy network that doesn't do anything

@@ -24,8 +24,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/util/tokens"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/util/tokens"
 )
 
 // TokenHeader defines the http header that includes the auth token

@@ -17,7 +17,7 @@
 package agreement
 
 import (
-	"github.com/algorand/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/basics"
 )
 
 // ParamsRound returns the round from which consensus parameters

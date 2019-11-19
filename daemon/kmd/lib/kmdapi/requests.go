@@ -17,7 +17,7 @@
 package kmdapi
 
 import (
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 // APIV1Request is the interface that all API V1 requests must satisfy

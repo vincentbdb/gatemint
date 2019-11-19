@@ -20,9 +20,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/daemon/algod/api/server/lib"
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/common"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/server/lib"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/common"
 )
 
 // SwaggerJSON is an httpHandler for route GET /swagger.json

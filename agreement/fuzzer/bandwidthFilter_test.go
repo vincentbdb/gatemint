@@ -23,7 +23,7 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // BandwidthFilter limits message flow by bandwidth/tic with buffering

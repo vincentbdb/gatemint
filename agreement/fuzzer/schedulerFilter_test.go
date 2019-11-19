@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 var _ = fmt.Printf

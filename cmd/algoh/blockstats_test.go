@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 	"github.com/stretchr/testify/require"
 )
 

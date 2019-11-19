@@ -35,7 +35,7 @@ import (
 	"github.com/fatih/color"
 	"golang.org/x/crypto/ssh/terminal"
 
-	"github.com/algorand/go-algorand/logging/logspec"
+	"github.com/vincentbdb/go-algorand/logging/logspec"
 )
 
 var filename = flag.String("file", "", "Name of the input logfile (do not set to read from stdin)")

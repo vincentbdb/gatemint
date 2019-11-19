@@ -28,8 +28,8 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/network"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 type sentMessage struct {

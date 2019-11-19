@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // ReadFromSRV is a helper to collect SRV addresses for a given name.

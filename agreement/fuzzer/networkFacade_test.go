@@ -31,9 +31,9 @@ import (
 
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/network"
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/util/timers"
+	"github.com/vincentbdb/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/util/timers"
 )
 
 var maxEventQueueWait = time.Second * 3

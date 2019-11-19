@@ -25,11 +25,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/data/bookkeeping"
-	"github.com/algorand/go-algorand/netdeploy/remote"
-	"github.com/algorand/go-algorand/tools/network/cloudflare"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/data/bookkeeping"
+	"github.com/vincentbdb/go-algorand/netdeploy/remote"
+	"github.com/vincentbdb/go-algorand/tools/network/cloudflare"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 type nodeConfigurator struct {

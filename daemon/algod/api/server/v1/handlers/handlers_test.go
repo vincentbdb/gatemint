@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/data/transactions"
-	"github.com/algorand/go-algorand/node"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/transactions"
+	"github.com/vincentbdb/go-algorand/node"
+	"github.com/vincentbdb/go-algorand/protocol"
 	"github.com/stretchr/testify/require"
 )
 

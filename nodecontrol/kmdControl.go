@@ -26,13 +26,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/algorand/go-algorand/cmd/kmd/codes"
-	"github.com/algorand/go-algorand/daemon/kmd/client"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/daemon/kmd/server"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/util"
-	"github.com/algorand/go-algorand/util/tokens"
+	"github.com/vincentbdb/go-algorand/cmd/kmd/codes"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/client"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/server"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/util/tokens"
 )
 
 const (

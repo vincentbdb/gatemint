@@ -19,7 +19,7 @@ package fuzzer
 import (
 	"encoding/json"
 
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 type TopologyFilterConfig struct {

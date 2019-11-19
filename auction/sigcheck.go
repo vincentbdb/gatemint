@@ -17,7 +17,7 @@
 package auction
 
 import (
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 // VerifySignedParams checks the signature in a SignedParams object.

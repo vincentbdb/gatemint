@@ -24,7 +24,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/config"
 )
 
 func TestLoadConfig(t *testing.T) {

@@ -19,7 +19,7 @@ package crypto
 import (
 	"testing"
 	// "github.com/stretchr/testify/require"
-	// "github.com/algorand/go-algorand/protocol"
+	// "github.com/vincentbdb/go-algorand/protocol"
 )
 
 func TestEmptyEncoding(t *testing.T) {

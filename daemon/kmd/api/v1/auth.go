@@ -20,8 +20,8 @@ import (
 	"crypto/subtle"
 	"net/http"
 
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/util/tokens"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/util/tokens"
 )
 
 const (

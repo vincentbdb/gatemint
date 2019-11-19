@@ -20,8 +20,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/algorand/go-algorand/daemon/kmd/config"
-	"github.com/algorand/go-algorand/daemon/kmd/wallet"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/config"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/wallet"
 	"github.com/algorand/go-deadlock"
 )
 

@@ -31,10 +31,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
-	tools_network "github.com/algorand/go-algorand/tools/network"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
+	tools_network "github.com/vincentbdb/go-algorand/tools/network"
 )
 
 const minLenBlockStr = 6 // the minimum size of a block filename (after padding with zeros) when using subfolders

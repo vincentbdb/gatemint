@@ -22,7 +22,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/algorand/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/libgoal"
 )
 
 var (

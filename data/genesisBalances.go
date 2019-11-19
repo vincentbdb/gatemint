@@ -19,7 +19,7 @@ package data
 import (
 	"time"
 
-	"github.com/algorand/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/basics"
 )
 
 // GenesisBalances contains the information needed to generate a new ledger

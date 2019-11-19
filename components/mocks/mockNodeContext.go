@@ -16,7 +16,7 @@
 
 package mocks
 
-import "github.com/algorand/go-algorand/data/basics"
+import "github.com/vincentbdb/go-algorand/data/basics"
 
 // MockNodeContext implements NodeContext for testing
 type MockNodeContext struct {

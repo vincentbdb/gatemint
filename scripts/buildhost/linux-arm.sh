@@ -81,8 +81,8 @@ EXEC=$(cat $BUILD_REQUEST | jq -r '.EXEC')
 S3_RELEASE_BUCKET=$(cat $BUILD_REQUEST | jq -r '.S3_RELEASE_BUCKET')
 
 cat << EOF > exescript
-git clone --depth=50 --branch ${BRANCH} https://github.com/algorand/go-algorand go/src/github.com/algorand/go-algorand
-cd go/src/github.com/algorand/go-algorand
+git clone --depth=50 --branch ${BRANCH} https://github.com/vincentbdb/go-algorand go/src/github.com/vincentbdb/go-algorand
+cd go/src/github.com/vincentbdb/go-algorand
 export AWS_ACCESS_KEY_ID=${BUILD_AWS_ACCESS_KEY_ID}
 export AWS_SECRET_ACCESS_KEY=${BUILD_AWS_SECRET_ACCESS_KEY}
 export TRAVIS_BRANCH=${BRANCH}

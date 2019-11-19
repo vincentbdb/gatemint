@@ -21,7 +21,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/util/s3"
+	"github.com/vincentbdb/go-algorand/util/s3"
 )
 
 func TestGetVersion(t *testing.T) {

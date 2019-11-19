@@ -26,11 +26,11 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 type walletTemplateData struct {

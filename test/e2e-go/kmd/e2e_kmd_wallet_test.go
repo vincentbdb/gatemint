@@ -22,8 +22,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 func TestWalletCreation(t *testing.T) {

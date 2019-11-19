@@ -15,7 +15,7 @@ if [ ! -z $BINDIR ]; then
     export PATH=${BINDIR}:${PATH}
 fi
 
-goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
+goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
 
 goal network start -r ${NETDIR}
 
@@ -29,7 +29,7 @@ ACCOUNTB=$(goal account new|awk '{ print $6 }')
 ZERO_ADDRESS=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ
 LEASE=YmxhaCBibGFoIGxlYXNlIHdoYXRldmVyIGJsYWghISE=
 
-sed s/TMPL_RCV/${ACCOUNTB}/g < ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/periodic-payment-escrow.teal.tmpl | sed s/TMPL_PERIOD/5/g | sed s/TMPL_DUR/2/g | sed s/TMPL_AMT/1000000/g | sed s/TMPL_LEASE/${LEASE}/g | sed s/TMPL_TIMEOUT/16/g | sed s/TMPL_FEE/10000/g > ${TEMPDIR}/periodic.teal
+sed s/TMPL_RCV/${ACCOUNTB}/g < ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/periodic-payment-escrow.teal.tmpl | sed s/TMPL_PERIOD/5/g | sed s/TMPL_DUR/2/g | sed s/TMPL_AMT/1000000/g | sed s/TMPL_LEASE/${LEASE}/g | sed s/TMPL_TIMEOUT/16/g | sed s/TMPL_FEE/10000/g > ${TEMPDIR}/periodic.teal
 
 ACCOUNT_PERIODIC=$(goal clerk compile ${TEMPDIR}/periodic.teal -o ${TEMPDIR}/periodic.tealc|awk '{ print $2 }')
 

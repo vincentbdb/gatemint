@@ -14,12 +14,12 @@ exit 1
 # ec2 public address here:
 TARGET=
 
-cd ${GOPATH}/src/github.com/algorand/go-algorand
+cd ${GOPATH}/src/github.com/vincentbdb/go-algorand
 
 git fetch
 git checkout rel/stable
 git merge origin/rel/stable
-scp -p ${GOPATH}/src/github.com/algorand/go-algorand/scripts/build_release_setup.sh ubuntu@${TARGET}:~/
+scp -p ${GOPATH}/src/github.com/vincentbdb/go-algorand/scripts/build_release_setup.sh ubuntu@${TARGET}:~/
 
 # upload the latest public key
 GTMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t "rpmtmp")
@@ -77,14 +77,14 @@ export AWS_EFS_MOUNT=
 # to be prompted for GPG key password at a couple points.
 # It can still steal the outer terminal from within piping the output to tee. Nifty, huh?
 BUILDTIMESTAMP=$(cat "${HOME}/buildtimestamp")
-(bash "${HOME}/go/src/github.com/algorand/go-algorand/scripts/build_release.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
-(bash "${HOME}/go/src/github.com/algorand/go-algorand/scripts/build_release_sign.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
-(bash "${HOME}/go/src/github.com/algorand/go-algorand/scripts/build_release_upload.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
+(bash "${HOME}/go/src/github.com/vincentbdb/go-algorand/scripts/build_release.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
+(bash "${HOME}/go/src/github.com/vincentbdb/go-algorand/scripts/build_release_sign.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
+(bash "${HOME}/go/src/github.com/vincentbdb/go-algorand/scripts/build_release_upload.sh" 2>&1)|tee -a "${HOME}/buildlog_${BUILDTIMESTAMP}"
 if [ -f "${HOME}/rstamp" ]; then
     . "${HOME}/rstamp"
 fi
 if [ -z "${RSTAMP}" ]; then
-    RSTAMP=$(${HOME}/go/src/github.com/algorand/go-algorand/scripts/reverse_hex_timestamp)
+    RSTAMP=$(${HOME}/go/src/github.com/vincentbdb/go-algorand/scripts/reverse_hex_timestamp)
 fi
 if [ -z "${RSTAMP}" ]; then
     echo "could not figure out RSTAMP, script must have failed early"

@@ -17,8 +17,8 @@
 package basics
 
 import (
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/crypto"
 	"github.com/algorand/go-codec/codec"
 )
 

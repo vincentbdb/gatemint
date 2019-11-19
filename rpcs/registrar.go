@@ -19,7 +19,7 @@ package rpcs
 import (
 	"net/http"
 
-	"github.com/algorand/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/network"
 )
 
 // Registrar is subset of network.GossipNode

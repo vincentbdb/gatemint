@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
 	"github.com/stretchr/testify/require"
 )
 

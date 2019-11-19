@@ -24,9 +24,9 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/libgoal"
 )
 
 // AccountsList holds a mapping between the account's address, its friendly name and whether it's a default one.

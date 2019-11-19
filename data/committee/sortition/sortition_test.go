@@ -20,7 +20,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 func BenchmarkSortition(b *testing.B) {

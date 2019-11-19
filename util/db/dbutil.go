@@ -30,7 +30,7 @@ import (
 
 	"github.com/mattn/go-sqlite3"
 
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 /* database utils */

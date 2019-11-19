@@ -19,7 +19,7 @@ package transactions
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/basics"
 )
 
 // AssetConfigTxnFields captures the fields used for asset

@@ -21,7 +21,7 @@ import (
 	"encoding/json"
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Limit messages by bandwidth/tic

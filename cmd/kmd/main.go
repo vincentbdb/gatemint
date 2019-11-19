@@ -25,10 +25,10 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/algorand/go-algorand/cmd/kmd/codes"
-	"github.com/algorand/go-algorand/daemon/kmd"
-	"github.com/algorand/go-algorand/daemon/kmd/server"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/cmd/kmd/codes"
+	"github.com/vincentbdb/go-algorand/daemon/kmd"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/server"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 const (

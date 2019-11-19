@@ -23,9 +23,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/data/transactions/logic"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/data/transactions/logic"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 func opGroupMarkdownTable(og *logic.OpGroup, out io.Writer) {

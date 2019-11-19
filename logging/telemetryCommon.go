@@ -23,7 +23,7 @@ import (
 	"github.com/algorand/go-deadlock"
 	"github.com/sirupsen/logrus"
 
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 // TelemetryOperation wraps the context for an ongoing telemetry.StartOperation call

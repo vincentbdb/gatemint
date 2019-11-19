@@ -19,7 +19,7 @@ package algoh
 import (
 	"io"
 
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 // ConfigFilename is the name of algoh's config file

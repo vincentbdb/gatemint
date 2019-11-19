@@ -25,10 +25,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/data/transactions"
-	"github.com/algorand/go-algorand/data/transactions/logic"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/data/transactions"
+	"github.com/vincentbdb/go-algorand/data/transactions/logic"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 func failFast(err error) {

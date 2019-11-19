@@ -19,7 +19,7 @@ package auction
 import (
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 // SerializedRunningAuction provides a wrapper around RunningAuction

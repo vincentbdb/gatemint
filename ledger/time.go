@@ -19,8 +19,8 @@ package ledger
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/data/bookkeeping"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/bookkeeping"
 )
 
 type timeTracker struct {

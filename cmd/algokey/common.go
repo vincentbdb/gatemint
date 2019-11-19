@@ -21,8 +21,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/crypto/passphrase"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto/passphrase"
 )
 
 func loadKeyfileOrMnemonic(keyfile string, mnemonic string) crypto.Seed {

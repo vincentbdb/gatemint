@@ -9,7 +9,7 @@ export RELEASE_GENESIS_PROCESS=true
 # Clone repo to temp location
 REPO_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t "tmp")
 
-git clone https://github.com/algorand/go-algorand ${REPO_DIR}
+git clone https://github.com/vincentbdb/go-algorand ${REPO_DIR}
 pushd ${REPO_DIR}
 
 git checkout rel/nightly

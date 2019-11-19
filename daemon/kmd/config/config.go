@@ -21,7 +21,7 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 const (

@@ -25,8 +25,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 func transcodeNoError(t *testing.T, mpToJSON bool, in io.ReadCloser, out io.WriteCloser) {

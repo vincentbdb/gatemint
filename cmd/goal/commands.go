@@ -30,12 +30,12 @@ import (
 	"github.com/spf13/cobra/doc"
 	"golang.org/x/crypto/ssh/terminal"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/common"
-	"github.com/algorand/go-algorand/data/bookkeeping"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/common"
+	"github.com/vincentbdb/go-algorand/data/bookkeeping"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 var log = logging.Base()

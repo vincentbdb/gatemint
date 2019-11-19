@@ -21,8 +21,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/daemon/kmd/config"
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/config"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 func TestNonAbsSQLiteWalletConfigFails(t *testing.T) {

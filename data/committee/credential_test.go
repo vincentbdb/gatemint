@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/basics"
 )
 
 // test SelfCheckSelected (should always be true, with current testingenv parameters)

@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
 )
 
 const (

@@ -27,7 +27,7 @@ import (
 	"github.com/satori/go.uuid"
 	"github.com/sirupsen/logrus"
 
-	"github.com/algorand/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/config"
 )
 
 // TelemetryConfigFilename default file name for telemetry config "logging.config"

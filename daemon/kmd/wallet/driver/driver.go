@@ -19,9 +19,9 @@ package driver
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/daemon/kmd/config"
-	"github.com/algorand/go-algorand/daemon/kmd/wallet"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/config"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/wallet"
 )
 
 var walletDrivers = map[string]Driver{

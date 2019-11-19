@@ -13,5 +13,5 @@ docker build -f ./go-algorand/algorand/build/Dockerfile -t algorand-build .
 docker rm buildpkg || true
 docker run --name buildpkg algorand-build
 mkdir -p ./tmp/dev_linux_pkg
-docker cp buildpkg:/go/src/github.com/algorand/go-algorand/tmp/dev_pkg ./tmp/dev_linux_pkg
+docker cp buildpkg:/go/src/github.com/vincentbdb/go-algorand/tmp/dev_pkg ./tmp/dev_linux_pkg
 docker stop buildpkg

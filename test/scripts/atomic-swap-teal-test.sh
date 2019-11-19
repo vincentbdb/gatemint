@@ -15,7 +15,7 @@ if [ ! -z $BINDIR ]; then
     export PATH=${BINDIR}:${PATH}
 fi
 
-goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
+goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
 
 goal network start -r ${NETDIR}
 
@@ -30,7 +30,7 @@ ZERO_ADDRESS=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ
 LEASE=YmxhaCBibGFoIGxlYXNlIHdoYXRldmVyIGJsYWghISE=
 
 # Generate the template
-algotmpl -d ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/ atomic-swap --fee=2000 --hashfn="sha256" --hashimg="9S+9MrKzuG/4jvbEkGKChfSCrxXdyylUH5S89Saj9sc=" --own=${ACCOUNT} --rcv=${ACCOUNTB} --timeout=100000 > ${TEMPDIR}/atomic.teal
+algotmpl -d ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/ atomic-swap --fee=2000 --hashfn="sha256" --hashimg="9S+9MrKzuG/4jvbEkGKChfSCrxXdyylUH5S89Saj9sc=" --own=${ACCOUNT} --rcv=${ACCOUNTB} --timeout=100000 > ${TEMPDIR}/atomic.teal
 
 # Compile the template
 CONTRACT=$(goal clerk compile ${TEMPDIR}/atomic.teal | awk '{ print $2 }')

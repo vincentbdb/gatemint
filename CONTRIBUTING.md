@@ -43,6 +43,6 @@ For Java code we use [Oracle’s standard formatting rules for Java](https://www
 
 The core development team monitors the Algorand community forums and regularly responds to questions and suggestions. Issues and Pull Requests are handled on GitHub.
 
-[issues_url]: https://github.com/algorand/go-algorand/issues
+[issues_url]: https://github.com/vincentbdb/go-algorand/issues
 [vuln_url]: https://www.algorand.com/resources/blog/security
 [bug_bounty_url]: https://bugcrowd.com/algorand

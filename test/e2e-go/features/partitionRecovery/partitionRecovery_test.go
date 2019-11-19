@@ -23,7 +23,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 const partitionRecoveryTime = 20 * time.Minute // If we hit step 9, worst case recovery time can be ~2^8 * 5 ~= 20 mins

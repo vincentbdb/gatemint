@@ -19,7 +19,7 @@ package agreement
 import (
 	"context"
 
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // periodRequestsContext keeps a context for all tasks associated with the same period, so we can cancel them if the period becomes irrelevant.

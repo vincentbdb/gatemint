@@ -27,8 +27,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 var defaultConfig = Local{

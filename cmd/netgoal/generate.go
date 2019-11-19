@@ -27,9 +27,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/netdeploy/remote"
-	"github.com/algorand/go-algorand/util/codecs"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/netdeploy/remote"
+	"github.com/vincentbdb/go-algorand/util/codecs"
 )
 
 var outputFilename string

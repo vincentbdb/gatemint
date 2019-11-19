@@ -24,7 +24,7 @@ import "C"
 import (
 	"math/big"
 
-	"github.com/algorand/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/crypto"
 )
 
 // Select runs the sortition function and returns the number of time the key was selected

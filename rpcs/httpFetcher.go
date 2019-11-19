@@ -24,9 +24,9 @@ import (
 	"path"
 	"strconv"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/network"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/network"
 )
 
 // set max fetcher size to 5MB, this is enough to fit the block and certificate

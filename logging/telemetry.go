@@ -27,8 +27,8 @@ import (
 	"github.com/satori/go.uuid"
 	"github.com/sirupsen/logrus"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 const telemetryPrefix = "/"

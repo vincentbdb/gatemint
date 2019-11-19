@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 var outDir = flag.String("d", "", "The directory containing the generated ledger and wallet files.")

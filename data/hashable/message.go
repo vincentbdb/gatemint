@@ -17,7 +17,7 @@
 package hashable
 
 import (
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Message is used for messages with no special meaning

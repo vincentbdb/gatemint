@@ -16,7 +16,7 @@
 
 package common
 
-import "github.com/algorand/go-algorand/daemon/algod/api/spec/common"
+import "github.com/vincentbdb/go-algorand/daemon/algod/api/spec/common"
 
 // VersionsResponse is the response to 'GET /versions'
 //

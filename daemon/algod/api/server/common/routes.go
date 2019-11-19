@@ -17,7 +17,7 @@
 package common
 
 import (
-	"github.com/algorand/go-algorand/daemon/algod/api/server/lib"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/server/lib"
 )
 
 // Routes are routes that are common for all versions

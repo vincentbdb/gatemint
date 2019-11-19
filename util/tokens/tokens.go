@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 const minimumAPITokenLength = 64

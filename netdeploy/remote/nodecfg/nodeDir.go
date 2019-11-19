@@ -25,11 +25,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/netdeploy/remote"
-	"github.com/algorand/go-algorand/shared/algoh"
-	"github.com/algorand/go-algorand/util/tokens"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/netdeploy/remote"
+	"github.com/vincentbdb/go-algorand/shared/algoh"
+	"github.com/vincentbdb/go-algorand/util/tokens"
 )
 
 type nodeDir struct {

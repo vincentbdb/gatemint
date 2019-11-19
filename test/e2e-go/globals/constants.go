@@ -19,7 +19,7 @@ package globals
 import (
 	"time"
 
-	"github.com/algorand/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/gen"
 )
 
 // MaxTimePerRound is the upper bound of expected time per round

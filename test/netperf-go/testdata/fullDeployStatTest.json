@@ -11,29 +11,29 @@
             "StepName" : "Prepare telemetry server",
             "Commands" : [
                 "/bin/bash -c \"echo '[local]\nlocalhost\n\n[target]' > hosts\"",
-                "/bin/bash -c \"echo '[defaults]\ndeprecation_warnings = False\nhost_key_checking = False\nroles_path = ${GOPATH}/src/github.com/algorand/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/roles\n[ssh_connection]\npipelining = True\nssh_args = -A -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no' > ansible.cfg\"",
-                "ansible-playbook -i hosts ${GOPATH}/src/github.com/algorand/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/create_instance.yml --extra-vars \"network=<network> For=<for>\"",
+                "/bin/bash -c \"echo '[defaults]\ndeprecation_warnings = False\nhost_key_checking = False\nroles_path = ${GOPATH}/src/github.com/vincentbdb/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/roles\n[ssh_connection]\npipelining = True\nssh_args = -A -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no' > ansible.cfg\"",
+                "ansible-playbook -i hosts ${GOPATH}/src/github.com/vincentbdb/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/create_instance.yml --extra-vars \"network=<network> For=<for>\"",
                 "/bin/bash -c \"sed '5q;d' hosts | cut -f 1 -d ' ' > telemetry.host\"",
-                "ansible-playbook -i hosts ${GOPATH}/src/github.com/algorand/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/playbook.yml --extra-vars \"network=<network> cloudflare_id=${CLOUDFLARE_ZONE_ID} cloudflare_email=${CLOUDFLARE_EMAIL} cloudflare_key=${CLOUDFLARE_AUTH_KEY} git_token=${GIT_TOKEN}\""
+                "ansible-playbook -i hosts ${GOPATH}/src/github.com/vincentbdb/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/playbook.yml --extra-vars \"network=<network> cloudflare_id=${CLOUDFLARE_ZONE_ID} cloudflare_email=${CLOUDFLARE_EMAIL} cloudflare_key=${CLOUDFLARE_AUTH_KEY} git_token=${GIT_TOKEN}\""
             ],
             "Disabled" : false
         },
         {
             "StepName" : "Prepare Nework Deployment",
             "Commands" : [
-                "/bin/rm -rf ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network>",
-                "${GOPATH}/bin/netgoal build -r ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network> -n <network> --recipe <recipe>",
-                "bash ${GOPATH}/src/github.com/algorand/go-algorand/scripts/upload_config.sh ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network> <channel>"
+                "/bin/rm -rf ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network>",
+                "${GOPATH}/bin/netgoal build -r ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network> -n <network> --recipe <recipe>",
+                "bash ${GOPATH}/src/github.com/vincentbdb/go-algorand/scripts/upload_config.sh ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network> <channel>"
             ]
         },
         {
             "StepName" : "Prepare Nework Deployment - Generate private build",
-            "Commands" : ["bash ${GOPATH}/src/github.com/algorand/go-algorand/scripts/deploy_private_version.sh -c <channel> -n <network> -f ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network>/genesisdata/genesis.json"],
+            "Commands" : ["bash ${GOPATH}/src/github.com/vincentbdb/go-algorand/scripts/deploy_private_version.sh -c <channel> -n <network> -f ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network>/genesisdata/genesis.json"],
             "Disabled" : false
         },
         {
             "StepName" : "Generate terraform file",
-            "Commands" : ["algonet build ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network>/cloudspec.config"],
+            "Commands" : ["algonet build ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network>/cloudspec.config"],
             "Disabled" : false
         },
         {
@@ -55,12 +55,12 @@
         },
         {
             "StepName" : "Remove network directories",
-            "Commands" : ["/bin/rm -rf ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/networks/<network>"]
+            "Commands" : ["/bin/rm -rf ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/networks/<network>"]
         },
         {
             "StepName" : "Remove telemetry instances",
             "Commands" : [
-                "ansible-playbook -i local, ${GOPATH}/src/github.com/algorand/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/destroy_instance.yml --extra-vars \"network=<network> cloudflare_id=${CLOUDFLARE_ZONE_ID} cloudflare_email=${CLOUDFLARE_EMAIL} cloudflare_key=${CLOUDFLARE_AUTH_KEY}\""
+                "ansible-playbook -i local, ${GOPATH}/src/github.com/vincentbdb/go-algorand-ci/ansible-playbooks/ephemeral_telemetry/provisioning/destroy_instance.yml --extra-vars \"network=<network> cloudflare_id=${CLOUDFLARE_ZONE_ID} cloudflare_email=${CLOUDFLARE_EMAIL} cloudflare_key=${CLOUDFLARE_AUTH_KEY}\""
             ]
         }
     ],

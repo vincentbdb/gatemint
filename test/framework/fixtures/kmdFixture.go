@@ -25,11 +25,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/daemon/kmd/client"
-	"github.com/algorand/go-algorand/daemon/kmd/config"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/nodecontrol"
-	"github.com/algorand/go-algorand/util"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/client"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/config"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/nodecontrol"
+	"github.com/vincentbdb/go-algorand/util"
 )
 
 // defaultConfig lowers scrypt params to make tests faster

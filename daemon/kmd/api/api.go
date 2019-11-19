@@ -69,11 +69,11 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/algorand/go-algorand/daemon/kmd/api/v1"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/daemon/kmd/session"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/api/v1"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/session"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 const (

@@ -25,11 +25,11 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/algorand/go-algorand/auction"
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/daemon/algod/api/client"
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/auction"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/client"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // The auctionminion is a tool that prepares inputs for the auctionmaster,

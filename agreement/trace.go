@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/logging/logspec"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging/logspec"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 type traceLevel int

@@ -20,7 +20,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 var fixture fixtures.GoalFixture

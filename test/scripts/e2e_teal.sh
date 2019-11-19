@@ -13,7 +13,7 @@ NETDIR=${TEMPDIR}/net
 
 export PATH=${BINDIR}:${PATH}
 
-${BINDIR}/goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
+${BINDIR}/goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
 
 ${BINDIR}/goal network start -r ${NETDIR}
 
@@ -32,7 +32,7 @@ ROUND=$(${BINDIR}/goal node status | grep 'Last committed block:'|awk '{ print $
 TIMEOUT_ROUND=$((${ROUND} + 7))
 
 # timeout after 7 rounds
-python ${GOPATH}/src/github.com/algorand/go-algorand/data/transactions/logic/tlhc.py --from ${ACCOUNT} --to ${ACCOUNTB} --timeout-round ${TIMEOUT_ROUND} > ${TEMPDIR}/tlhc.teal 2> ${TEMPDIR}/tlhc.teal.secret
+python ${GOPATH}/src/github.com/vincentbdb/go-algorand/data/transactions/logic/tlhc.py --from ${ACCOUNT} --to ${ACCOUNTB} --timeout-round ${TIMEOUT_ROUND} > ${TEMPDIR}/tlhc.teal 2> ${TEMPDIR}/tlhc.teal.secret
 
 cat ${TEMPDIR}/tlhc.teal
 

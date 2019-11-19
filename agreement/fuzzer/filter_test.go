@@ -17,7 +17,7 @@
 package fuzzer
 
 import (
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // DownstreamFilter is the network filter downsteam filter interface

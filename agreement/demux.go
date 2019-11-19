@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/logging/logspec"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging/logspec"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 const (

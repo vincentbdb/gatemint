@@ -20,8 +20,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/server/lib"
-	"github.com/algorand/go-algorand/util/metrics"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/server/lib"
+	"github.com/vincentbdb/go-algorand/util/metrics"
 )
 
 // Metrics returns data collected by util/metrics

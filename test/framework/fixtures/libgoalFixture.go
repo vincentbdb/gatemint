@@ -27,15 +27,15 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/data/account"
-	"github.com/algorand/go-algorand/gen"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/netdeploy"
-	"github.com/algorand/go-algorand/nodecontrol"
-	"github.com/algorand/go-algorand/protocol"
-	"github.com/algorand/go-algorand/test/e2e-go/globals"
-	"github.com/algorand/go-algorand/util/db"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/data/account"
+	"github.com/vincentbdb/go-algorand/gen"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/netdeploy"
+	"github.com/vincentbdb/go-algorand/nodecontrol"
+	"github.com/vincentbdb/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/test/e2e-go/globals"
+	"github.com/vincentbdb/go-algorand/util/db"
 )
 
 // LibGoalFixture is a test fixture for tests requiring a running node with a algod and kmd clients

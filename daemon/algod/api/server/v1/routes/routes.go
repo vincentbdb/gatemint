@@ -19,8 +19,8 @@ package routes
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/server/lib"
-	"github.com/algorand/go-algorand/daemon/algod/api/server/v1/handlers"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/server/lib"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/server/v1/handlers"
 )
 
 // KeyLength is the an Algorand's public address length

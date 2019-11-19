@@ -20,10 +20,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/algorand/go-algorand/logging"
-	"github.com/algorand/go-algorand/logging/logspec"
-	"github.com/algorand/go-algorand/logging/telemetryspec"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/logging/logspec"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 //go:generate stringer -type=actionType

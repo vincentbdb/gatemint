@@ -16,7 +16,7 @@
 
 package components
 
-import "github.com/algorand/go-algorand/data/basics"
+import "github.com/vincentbdb/go-algorand/data/basics"
 
 // NodeContext is an interface representing various context information regarding
 // a specific node instance (per AlgorandFullNode)

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"net/http"
 
-	v1 "github.com/algorand/go-algorand/daemon/kmd/api/v1"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
-	"github.com/algorand/go-algorand/protocol"
+	v1 "github.com/vincentbdb/go-algorand/daemon/kmd/api/v1"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // DoV1Request accepts a request from kmdapi/requests and

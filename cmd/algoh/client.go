@@ -19,7 +19,7 @@ package main
 import (
 	"context"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
 )
 
 // Client is a minimal interface for the RestClient

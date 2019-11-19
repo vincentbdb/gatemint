@@ -20,12 +20,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	v1 "github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
+	v1 "github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
 	"io/ioutil"
 	"time"
 
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/shared/pingpong"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/shared/pingpong"
 )
 
 // PingPongComponentInstance extends component instance

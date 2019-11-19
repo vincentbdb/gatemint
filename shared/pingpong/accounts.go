@@ -18,9 +18,9 @@ package pingpong
 
 import (
 	"fmt"
-	"github.com/algorand/go-algorand/crypto"
-	v1 "github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/crypto"
+	v1 "github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/libgoal"
 	"sort"
 	"time"
 )

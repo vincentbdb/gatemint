@@ -19,8 +19,8 @@ package bookkeeping
 import (
 	"io/ioutil"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // A Genesis object defines an Algorand "universe" -- a set of nodes that can

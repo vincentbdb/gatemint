@@ -30,8 +30,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 // Response is a generic interface wrapping any data returned by the server.

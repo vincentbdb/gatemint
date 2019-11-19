@@ -22,9 +22,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 func cascadeCreateAndFundAccounts(amountToSend, transactionFee uint64, fundingAccount string, client libgoal.Client, a *require.Assertions) map[string]string {

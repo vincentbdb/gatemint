@@ -26,7 +26,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/config"
 )
 
 func TestTelemetryConfig(t *testing.T) {

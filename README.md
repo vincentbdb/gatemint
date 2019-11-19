@@ -40,7 +40,7 @@ requirements.
 
 Initial environment setup:
 ```bash
-git clone https://github.com/algorand/go-algorand
+git clone https://github.com/vincentbdb/go-algorand
 cd go-algorand
 ./scripts/configure_dev.sh
 ```

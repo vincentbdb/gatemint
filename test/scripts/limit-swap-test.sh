@@ -15,7 +15,7 @@ if [ ! -z $BINDIR ]; then
     export PATH=${BINDIR}:${PATH}
 fi
 
-goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/algorand/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
+goal network create -r ${NETDIR} -n tbd -t ${GOPATH}/src/github.com/vincentbdb/go-algorand/test/testdata/nettemplates/TwoNodes50EachFuture.json
 
 goal network start -r ${NETDIR}
 
@@ -39,7 +39,7 @@ echo "closeout part a, Algo trader"
 ROUND=$(goal node status | grep 'Last committed block:'|awk '{ print $4 }')
 TIMEOUT_ROUND=$((${ROUND} + 2))
 
-sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/limit-order-a.teal.tmpl | sed s/TMPL_SWAPN/31337/g | sed s/TMPL_SWAPD/137/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-a.teal
+sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/limit-order-a.teal.tmpl | sed s/TMPL_SWAPN/31337/g | sed s/TMPL_SWAPD/137/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-a.teal
 
 ACCOUNT_ALGO_TRADER=$(goal clerk compile ${TEMPDIR}/limit-order-a.teal -o ${TEMPDIR}/limit-order-a.tealc|awk '{ print $2 }')
 
@@ -58,7 +58,7 @@ ROUND=$(goal node status | grep 'Last committed block:'|awk '{ print $4 }')
 TIMEOUT_ROUND=$((${ROUND} + 6))
 SETUP_ROUND=$((${ROUND} + 5))
 
-sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/limit-order-b.teal.tmpl | sed s/TMPL_SWAPN/137/g | sed s/TMPL_SWAPD/31337/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-b.teal
+sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/limit-order-b.teal.tmpl | sed s/TMPL_SWAPN/137/g | sed s/TMPL_SWAPD/31337/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-b.teal
 
 
 ACCOUNT_ASSET_TRADER=$(goal clerk compile ${TEMPDIR}/limit-order-b.teal -o ${TEMPDIR}/limit-order-b.tealc|awk '{ print $2 }')
@@ -106,7 +106,7 @@ ROUND=$(goal node status | grep 'Last committed block:'|awk '{ print $4 }')
 TIMEOUT_ROUND=$((${ROUND} + 200))
 SETUP_ROUND=$((${ROUND} + 199))
 
-sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/limit-order-b.teal.tmpl | sed s/TMPL_SWAPN/137/g | sed s/TMPL_SWAPD/31337/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-b.teal
+sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/limit-order-b.teal.tmpl | sed s/TMPL_SWAPN/137/g | sed s/TMPL_SWAPD/31337/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-b.teal
 
 ACCOUNT_ASSET_TRADER=$(goal clerk compile ${TEMPDIR}/limit-order-b.teal -o ${TEMPDIR}/limit-order-b.tealc|awk '{ print $2 }')
 
@@ -127,7 +127,7 @@ goal asset send --assetid ${ASSET_ID} -f ${ACCOUNT} -t ${ACCOUNT_ASSET_TRADER} -
 
 # make Algo trader
 
-sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/algorand/go-algorand/tools/teal/templates/limit-order-a.teal.tmpl | sed s/TMPL_SWAPN/31337/g | sed s/TMPL_SWAPD/137/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-a.teal
+sed s/TMPL_ASSET/${ASSET_ID}/g < ${GOPATH}/src/github.com/vincentbdb/go-algorand/tools/teal/templates/limit-order-a.teal.tmpl | sed s/TMPL_SWAPN/31337/g | sed s/TMPL_SWAPD/137/g | sed s/TMPL_TIMEOUT/${TIMEOUT_ROUND}/g | sed s/TMPL_OWN/${ACCOUNT}/g | sed s/TMPL_FEE/100000/g | sed s/TMPL_MINTRD/10000/g > ${TEMPDIR}/limit-order-a.teal
 
 ACCOUNT_ALGO_TRADER=$(goal clerk compile ${TEMPDIR}/limit-order-a.teal -o ${TEMPDIR}/limit-order-a.tealc|awk '{ print $2 }')
 

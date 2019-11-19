@@ -19,8 +19,8 @@ package network
 import (
 	"github.com/algorand/go-deadlock"
 
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // IncomingMessage represents a message arriving from some peer in our p2p network

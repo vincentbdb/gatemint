@@ -1,7 +1,7 @@
 dist: bionic
 go:
   - "1.12"
-go_import_path: github.com/algorand/go-algorand
+go_import_path: github.com/vincentbdb/go-algorand
 language: go
 sudo: required
 

@@ -22,14 +22,14 @@ endif
 GOTAGS          := --tags "sqlite_unlock_notify sqlite_omit_load_extension"
 GOTRIMPATH	:= $(shell go help build | grep -q .-trimpath && echo -trimpath)
 
-GOLDFLAGS_BASE  := -X github.com/algorand/go-algorand/config.BuildNumber=$(BUILDNUMBER) \
-		 -X github.com/algorand/go-algorand/config.CommitHash=$(COMMITHASH) \
-		 -X github.com/algorand/go-algorand/config.Branch=$(BUILDBRANCH) \
-		 -X github.com/algorand/go-algorand/config.DefaultDeadlock=$(DEFAULT_DEADLOCK) \
+GOLDFLAGS_BASE  := -X github.com/vincentbdb/go-algorand/config.BuildNumber=$(BUILDNUMBER) \
+		 -X github.com/vincentbdb/go-algorand/config.CommitHash=$(COMMITHASH) \
+		 -X github.com/vincentbdb/go-algorand/config.Branch=$(BUILDBRANCH) \
+		 -X github.com/vincentbdb/go-algorand/config.DefaultDeadlock=$(DEFAULT_DEADLOCK) \
 		 -extldflags \"$(EXTLDFLAGS)\"
 
 GOLDFLAGS := $(GOLDFLAGS_BASE) \
-		 -X github.com/algorand/go-algorand/config.Channel=$(BUILDCHANNEL)
+		 -X github.com/vincentbdb/go-algorand/config.Channel=$(BUILDCHANNEL)
 
 UNIT_TEST_SOURCES := $(sort $(shell GO111MODULE=off go list ./... | grep -v /go-algorand/test/ ))
 ALGOD_API_PACKAGES := $(sort $(shell GO111MODULE=off cd daemon/algod/api; go list ./... ))
@@ -126,7 +126,7 @@ build: buildsrc gen
 buildsrc: crypto/lib/libsodium.a node_exporter NONGO_BIN deps $(ALGOD_API_SWAGGER_INJECT) $(KMD_API_SWAGGER_INJECT)
 	go install $(GOTRIMPATH) $(GOTAGS) -ldflags="$(GOLDFLAGS)" ./...
 
-SOURCES_RACE := github.com/algorand/go-algorand/cmd/kmd
+SOURCES_RACE := github.com/vincentbdb/go-algorand/cmd/kmd
 
 ## Build binaries with the race detector enabled in them.
 ## This allows us to run e2e tests with race detection.

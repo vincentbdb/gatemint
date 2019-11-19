@@ -22,8 +22,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/auction"
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/auction"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 func detectAuctionCannotProceed(r *require.Assertions, params auction.Params, lastRound, pricePerAlgo uint64) {

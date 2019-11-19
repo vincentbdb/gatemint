@@ -19,8 +19,8 @@ package network
 import (
 	"container/heap"
 
-	"github.com/algorand/go-algorand/data/basics"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // NetPrioScheme is an implementation of network connection priorities

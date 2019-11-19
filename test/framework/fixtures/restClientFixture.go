@@ -24,12 +24,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/client"
-	"github.com/algorand/go-algorand/daemon/algod/api/spec/v1"
-	"github.com/algorand/go-algorand/libgoal"
-	"github.com/algorand/go-algorand/nodecontrol"
-	"github.com/algorand/go-algorand/test/e2e-go/globals"
-	"github.com/algorand/go-algorand/util/tokens"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/client"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/spec/v1"
+	"github.com/vincentbdb/go-algorand/libgoal"
+	"github.com/vincentbdb/go-algorand/nodecontrol"
+	"github.com/vincentbdb/go-algorand/test/e2e-go/globals"
+	"github.com/vincentbdb/go-algorand/util/tokens"
 )
 
 // RestClientFixture is a test fixture for tests requiring a running node with a REST client

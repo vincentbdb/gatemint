@@ -23,7 +23,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/algorand/go-algorand/test/framework/fixtures"
+	"github.com/vincentbdb/go-algorand/test/framework/fixtures"
 )
 
 func TestTransactionPoolOrderingAndClearing(t *testing.T) {

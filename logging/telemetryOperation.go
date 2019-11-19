@@ -22,7 +22,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/algorand/go-algorand/logging/telemetryspec"
+	"github.com/vincentbdb/go-algorand/logging/telemetryspec"
 )
 
 func makeTelemetryOperation(telemetryState *telemetryState, category telemetryspec.Category, identifier telemetryspec.Operation) TelemetryOperation {

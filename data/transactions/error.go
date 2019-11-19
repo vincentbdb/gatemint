@@ -19,7 +19,7 @@ package transactions
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand/data/basics"
+	"github.com/vincentbdb/go-algorand/data/basics"
 )
 
 // MinFeeError defines an error type which could be returned from the method WellFormed

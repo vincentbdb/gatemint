@@ -28,8 +28,8 @@ import (
 
 	"github.com/google/go-querystring/query"
 
-	"github.com/algorand/go-algorand/daemon/algod/api/client"
-	"github.com/algorand/go-algorand/logging"
+	"github.com/vincentbdb/go-algorand/daemon/algod/api/client"
+	"github.com/vincentbdb/go-algorand/logging"
 )
 
 //  Auction Bank Rest Client

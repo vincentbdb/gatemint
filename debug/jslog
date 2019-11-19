@@ -54,7 +54,7 @@ class LogFile:
         self.messageRe = None
         self.levelMin = 0
         self.levelAlways = 2
-        self.functionPrefixRemovals = ['github.com/algorand/go-algorand/']
+        self.functionPrefixRemovals = ['github.com/vincentbdb/go-algorand/']
 
     def recordGenerator(self, fin):
         for line in fin:
@@ -72,7 +72,7 @@ class LogFile:
                 sys.stderr.write(line + '\n')
     def format(self, rec):
         # e.g.
-        # {"file":"wsNetwork.go","function":"github.com/algorand/go-algorand/network.(*WebsocketNetwork).readFromBootstrap","level":"debug","line":682,"msg":"no dns lookup due to empty bootstrapID","name":"127.0.0.1:0","time":"2019-02-01T13:03:35-05:00"}
+        # {"file":"wsNetwork.go","function":"github.com/vincentbdb/go-algorand/network.(*WebsocketNetwork).readFromBootstrap","level":"debug","line":682,"msg":"no dns lookup due to empty bootstrapID","name":"127.0.0.1:0","time":"2019-02-01T13:03:35-05:00"}
         level = rec.pop('level', None)
         fname = rec.pop('file', None)
         fline = rec.pop('line', None)

@@ -17,8 +17,8 @@
 package libgoal
 
 import (
-	"github.com/algorand/go-algorand/crypto"
-	"github.com/algorand/go-algorand/daemon/kmd/lib/kmdapi"
+	"github.com/vincentbdb/go-algorand/crypto"
+	"github.com/vincentbdb/go-algorand/daemon/kmd/lib/kmdapi"
 )
 
 // ImportKey wraps imports a secret key into the kmd wallet using the passed walletHandle

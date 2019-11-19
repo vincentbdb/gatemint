@@ -20,7 +20,7 @@ import (
 	"crypto/subtle"
 	"net/http"
 
-	v1 "github.com/algorand/go-algorand/daemon/kmd/api/v1"
+	v1 "github.com/vincentbdb/go-algorand/daemon/kmd/api/v1"
 )
 
 const allowedMethods = "GET, POST, DELETE, OPTIONS"

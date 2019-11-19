@@ -18,7 +18,7 @@ package fuzzer
 
 import (
 	"encoding/json"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // Drop message filter will drop 1 out of X messages where X is the drop rate for the node.

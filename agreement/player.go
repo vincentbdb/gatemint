@@ -19,8 +19,8 @@ package agreement
 import (
 	"time"
 
-	"github.com/algorand/go-algorand/config"
-	"github.com/algorand/go-algorand/protocol"
+	"github.com/vincentbdb/go-algorand/config"
+	"github.com/vincentbdb/go-algorand/protocol"
 )
 
 // The player implements the top-level state machine functionality of the
