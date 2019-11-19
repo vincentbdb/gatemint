@@ -1,3 +1,9 @@
+cd ~/go/src/github.com/
+git clone https://github.com/vincentbdb/go-algorand.git tmgo
+cd tmgo
+make tools install
+
+
 [![Build Status](https://travis-ci.com/algorand/go-algorand.svg?token=25XP72ADqbCQJ3TJVC9S&branch=master)](https://travis-ci.com/algorand/go-algorand)
 
 go-algorand
