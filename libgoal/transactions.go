@@ -118,6 +118,17 @@ func (c *Client) BroadcastTransaction(stx transactions.SignedTxn) (txid string, 
 	}
 	return resp.TxID, nil
 }
+func (c *Client) BroadcastTransactionBytes(stx transactions.SignedTxn) (txid string, err error) {
+	algod, err := c.ensureAlgodClient()
+	if err != nil {
+		return
+	}
+	resp, err := algod.SendRawTransaction(stx)
+	if err != nil {
+		return
+	}
+	return resp.TxID, nil
+}
 
 // BroadcastTransactionGroup broadcasts a signed transaction group to the network using algod
 func (c *Client) BroadcastTransactionGroup(txgroup []transactions.SignedTxn) error {

@@ -283,6 +283,10 @@ func (client RestClient) SendRawTransaction(txn transactions.SignedTxn) (respons
 	err = client.post(&response, "/transactions", protocol.Encode(txn))
 	return
 }
+func (client RestClient) SendRawTransactionBytes(bytes []byte) (response v1.TransactionID, err error) {
+	err = client.post(&response, "/transactions", bytes)
+	return
+}
 
 // SendRawTransactionGroup gets a SignedTxn group and broadcasts it to the network
 func (client RestClient) SendRawTransactionGroup(txgroup []transactions.SignedTxn) error {
