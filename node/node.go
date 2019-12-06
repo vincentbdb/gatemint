@@ -20,11 +20,13 @@ package node
 import (
 	"context"
 	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"time"
 
+	"github.com/algorand/go-deadlock"
 	"github.com/vincentbdb/go-algorand/agreement"
 	"github.com/vincentbdb/go-algorand/agreement/gossip"
 	"github.com/vincentbdb/go-algorand/catchup"
@@ -47,7 +49,6 @@ import (
 	"github.com/vincentbdb/go-algorand/util/execpool"
 	"github.com/vincentbdb/go-algorand/util/metrics"
 	"github.com/vincentbdb/go-algorand/util/timers"
-	"github.com/algorand/go-deadlock"
 )
 
 const participationKeyCheckSecs = 60
@@ -116,6 +117,8 @@ type AlgorandFullNode struct {
 	wsFetcherService *rpcs.WsFetcherService // to handle inbound gossip msgs for fetching over gossip
 
 	oldKeyDeletionNotify chan struct{}
+
+	application appinterface.Application
 }
 
 // TxnWithStatus represents information about a single transaction,
@@ -256,7 +259,6 @@ func MakeFull(log logging.Logger, rootDir string, cfg config.Local, phonebookDir
 	}
 
 	node.oldKeyDeletionNotify = make(chan struct{}, 1)
-
 	return node, err
 }
 
@@ -770,4 +772,12 @@ func (node *AlgorandFullNode) GetTransactionByID(txid transactions.Txid, rnd bas
 		ConfirmedRound: rnd,
 		ApplyData:      stx.ApplyData,
 	}, nil
+}
+
+func (node *AlgorandFullNode) InitApplication(app appinterface.Application) {
+	node.application = app
+}
+
+func (node *AlgorandFullNode) GetApplication() appinterface.Application {
+	return node.application
 }

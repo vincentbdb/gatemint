@@ -141,4 +141,18 @@ var Routes = lib.Routes{
 		Path:        "/transaction/{txid:[A-Z0-9]+}",
 		HandlerFunc: handlers.GetTransactionByID,
 	},
+
+	lib.Route{
+		Name:        "raw-transaction-test",
+		Method:      "GET",
+		Path:        "/transactions-test",
+		HandlerFunc: handlers.SendTest,
+	},
+
+	lib.Route{
+		Name:        "app-query",
+		Method:      "GET",
+		Path:        "/app-query",
+		HandlerFunc: handlers.AppQuery,
+	},
 }

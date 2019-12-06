@@ -213,3 +213,21 @@ type PendingTransactionsResponse struct {
 func (r PendingTransactionsResponse) getBody() interface{} {
 	return r.Body
 }
+
+type TxTestResponse struct {
+	// in: body
+	Body *v1.TxTest
+}
+
+func (t TxTestResponse) getBody() interface{} {
+	return t.Body
+}
+
+type AppResponse struct {
+	// in: body
+	Body *v1.Response
+}
+
+func (t AppResponse) getBody() interface{} {
+	return t.Body
+}

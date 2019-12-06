@@ -17,6 +17,12 @@
 // Package v1 defines models exposed by algod rest api
 package v1
 
+import (
+	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
+	"strings"
+)
+
 // NodeStatus contains the information about a node status
 // swagger:model NodeStatus
 type NodeStatus struct {
@@ -728,4 +734,22 @@ type PendingTransactions struct {
 	// TotalTxns
 	// required: true
 	TotalTxns uint64 `json:"totalTxns"`
+}
+
+type TxTest struct {
+	TestFlag string `json:"testFlag"`
+}
+
+func (tx TxTest) String() string {
+	var sb strings.Builder
+	sb.WriteString("Response:\n")
+
+	if tx.TestFlag != "" {
+		sb.WriteString(fmt.Sprintf("  TestFlag: %s\n", tx.TestFlag))
+	}
+	return strings.TrimSpace(sb.String())
+}
+
+type Response struct {
+	Response appinterface.ResponseQuery `json:"response"`
 }

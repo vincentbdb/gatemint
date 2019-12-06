@@ -19,6 +19,7 @@ package algod
 import (
 	"context"
 	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -283,4 +284,8 @@ func (s *Server) Stop() {
 // the server's node.
 func (s *Server) OverridePhonebook(dialOverride ...string) {
 	s.node.ReplacePeerList(dialOverride...)
+}
+
+func (s *Server) InitApplication(application appinterface.Application) {
+	s.node.InitApplication(application)
 }

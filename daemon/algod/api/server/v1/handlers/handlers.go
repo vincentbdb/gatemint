@@ -17,9 +17,12 @@
 package handlers
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"strconv"
 	"strings"
@@ -1495,4 +1498,32 @@ func GetTransactionByID(ctx lib.ReqContext, w http.ResponseWriter, r *http.Reque
 	// We didn't find it, return a failure
 	lib.ErrorResponse(w, http.StatusNotFound, errors.New(errTransactionNotFound), errTransactionNotFound, ctx.Log)
 	return
+}
+
+func SendTest(ctx lib.ReqContext, w http.ResponseWriter, r *http.Request) {
+
+	tx := v1.TxTest{
+		TestFlag: "success",
+	}
+
+	SendJSON(TxTestResponse{&tx}, w, ctx.Log)
+}
+
+func AppQuery(ctx lib.ReqContext, w http.ResponseWriter, r *http.Request) {
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Printf("read body err, %v\n", err)
+		return
+	}
+	var param appinterface.QueryParam
+	if err = json.Unmarshal(body, &param); err != nil {
+		fmt.Printf("Unmarshal err, %v\n", err)
+		return
+	}
+	res := ctx.Node.GetApplication().Query(param)
+	resBody := v1.Response{
+		Response: res,
+	}
+
+	SendJSON(AppResponse{&resBody}, w, ctx.Log)
 }
