@@ -477,6 +477,55 @@ func RawTransaction(ctx lib.ReqContext, w http.ResponseWriter, r *http.Request) 
 	SendJSON(TransactionIDResponse{&v1.TransactionID{TxID: txid.String()}}, w, ctx.Log)
 }
 
+// RawTransaction is an httpHandler for route POST /v1/transactions-test
+// this transaction is onlyf for single transaction
+// because algo don't care what the tx is
+func RawTransactionTest(ctx lib.ReqContext, w http.ResponseWriter, r *http.Request) {
+	// swagger:operation POST /v1/transactions RawTransaction
+	// ---
+	//     Summary: Broadcasts a raw transaction to the network.
+	//     Produces:
+	//     - application/json
+	//     Consumes:
+	//     - application/x-binary
+	//     Schemes:
+	//     - http
+	//     Parameters:
+	//       - name: rawtxn
+	//         in: body
+	//         schema:
+	//           type: string
+	//           format: binary
+	//         required: true
+	//         description: The byte encoded signed transaction to broadcast to network
+	//     Responses:
+	//       200:
+	//         "$ref": "#/responses/TransactionIDResponse"
+	//       400:
+	//         description: Bad Request
+	//         schema: {type: string}
+	//       500:
+	//         description: Internal Error
+	//         schema: {type: string}
+	//       401: { description: Invalid API Token }
+	//       default: { description: Unknown Error }
+
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		lib.ErrorResponse(w, http.StatusBadRequest, err, err.Error(), ctx.Log)
+		return
+	}
+
+	err = ctx.Node.BroadcastProxyTx(body)
+	if err != nil {
+		lib.ErrorResponse(w, http.StatusBadRequest, err, err.Error(), ctx.Log)
+		return
+	}
+
+	// could return tx hash
+	SendJSON(TransactionIDResponse{&v1.TransactionID{TxID: transactions.Tx(body).String()}}, w, ctx.Log)
+}
+
 // AccountInformation is an httpHandler for route GET /v1/account/{addr:[A-Z0-9]{KeyLength}}
 func AccountInformation(ctx lib.ReqContext, w http.ResponseWriter, r *http.Request) {
 	// swagger:operation GET /v1/account/{address} AccountInformation

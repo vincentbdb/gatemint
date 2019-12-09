@@ -18,6 +18,7 @@ package pools
 
 import (
 	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
 	"sync"
 	"time"
 
@@ -62,6 +63,16 @@ type TransactionPool struct {
 	rememberedTxGroups [][]transactions.SignedTxn
 	rememberedTxids    map[transactions.Txid]transactions.SignedTxn
 
+	// pendingMu protects pendingTxGroups and pendingTxids
+	pendingProxyMu       deadlock.RWMutex
+	pendingProxyTxGroups []transactions.Tx
+	pendingProxyTxids    map[transactions.Txid]transactions.Tx
+
+	rememberedProxyTxGroups []transactions.Tx
+	rememberedProxyTxids    map[transactions.Txid]transactions.Tx
+
+	application appinterface.Application
+
 	// result of logic.Eval()
 	lsigCache *lsigEvalCache
 	lcmu      deadlock.RWMutex
@@ -85,6 +96,9 @@ func MakeTransactionPool(ledger *ledger.Ledger, cfg config.Local) *TransactionPo
 		expFeeFactor:    cfg.TxPoolExponentialIncreaseFactor,
 		lsigCache:       makeLsigEvalCache(cfg.TxPoolSize),
 		txPoolMaxSize:   cfg.TxPoolSize,
+
+		pendingProxyTxids:    make(map[transactions.Txid]transactions.Tx),
+		rememberedProxyTxids: make(map[transactions.Txid]transactions.Tx),
 	}
 	pool.cond.L = &pool.mu
 	pool.recomputeBlockEvaluator(make(map[transactions.Txid]basics.Round))
@@ -153,6 +167,29 @@ func (pool *TransactionPool) rememberCommit(flush bool) {
 
 	pool.rememberedTxGroups = nil
 	pool.rememberedTxids = make(map[transactions.Txid]transactions.SignedTxn)
+}
+
+// rememberCommit() saves the changes added by remember to
+// pendingTxGroups and pendingTxids.  The caller is assumed to
+// be holding pool.mu.  flush indicates whether previous
+// pendingTxGroups and pendingTxids should be flushed out and
+// replaced altogether by rememberedTxGroups and rememberedTxids.
+func (pool *TransactionPool) rememberProxyCommit(flush bool) {
+	pool.pendingMu.Lock()
+	defer pool.pendingMu.Unlock()
+
+	if flush {
+		pool.pendingProxyTxGroups = pool.rememberedProxyTxGroups
+		pool.pendingProxyTxids = pool.rememberedProxyTxids
+	} else {
+		pool.pendingProxyTxGroups = append(pool.pendingProxyTxGroups, pool.rememberedProxyTxGroups...)
+		for txid, txn := range pool.rememberedProxyTxids {
+			pool.pendingProxyTxids[txid] = txn
+		}
+	}
+
+	pool.rememberedProxyTxGroups = nil
+	pool.rememberedProxyTxids = make(map[transactions.Txid]transactions.Tx)
 }
 
 // PendingCount returns the number of transactions currently pending in the pool.
@@ -303,6 +340,35 @@ func (pool *TransactionPool) ingest(txgroup []transactions.SignedTxn, params poo
 	return nil
 }
 
+func (pool *TransactionPool) ingestSingle(tx transactions.Tx, params poolIngestParams) error {
+	if pool.pendingBlockEvaluator == nil {
+		return fmt.Errorf("TransactionPool.ingest: no pending block evaluator")
+	}
+
+	if params.preferSync {
+		// Make sure that the latest block has been processed by OnNewBlock().
+		// If not, we might be in a race, so wait a little bit for OnNewBlock()
+		// to catch up to the ledger.
+		latest := pool.ledger.Latest()
+		waitExpires := time.Now().Add(timeoutOnNewBlock)
+		for pool.pendingBlockEvaluator.Round() <= latest && time.Now().Before(waitExpires) {
+			condvar.TimedWait(&pool.cond, timeoutOnNewBlock)
+			if pool.pendingBlockEvaluator == nil {
+				return fmt.Errorf("TransactionPool.ingest: no pending block evaluator")
+			}
+		}
+	}
+
+	err := pool.addSingleToPendingBlockEvaluator(tx)
+	if err != nil {
+		return err
+	}
+
+	pool.rememberedProxyTxGroups = append(pool.rememberedProxyTxGroups, tx)
+	pool.rememberedProxyTxids[tx.ComputeID()] = tx
+	return nil
+}
+
 // RememberOne stores the provided transaction
 // Precondition: Only RememberOne() properly-signed and well-formed transactions (i.e., ensure t.WellFormed())
 func (pool *TransactionPool) RememberOne(t transactions.SignedTxn) error {
@@ -330,6 +396,31 @@ func (pool *TransactionPool) Remember(txgroup []transactions.SignedTxn) error {
 
 	pool.rememberCommit(false)
 	return nil
+}
+
+func (pool *TransactionPool) RememberSingle(tx transactions.Tx) error {
+	if err := pool.checkPendingQueueSize(); err != nil {
+		return err
+	}
+	pool.mu.Lock()
+	defer pool.mu.Unlock()
+
+	err := pool.rememberSingle(tx)
+	if err != nil {
+		return fmt.Errorf("TransactionPool.Remember: %v", err)
+	}
+
+	pool.rememberProxyCommit(false)
+	return nil
+}
+
+// remember attempts to add a transaction group to the pool.
+func (pool *TransactionPool) rememberSingle(tx transactions.Tx) error {
+	params := poolIngestParams{
+		checkFee:   false,
+		preferSync: true,
+	}
+	return pool.ingestSingle(tx, params)
 }
 
 // Lookup returns the error associated with a transaction that used
@@ -492,12 +583,28 @@ func (pool *TransactionPool) addToPendingBlockEvaluatorOnce(txgroup []transactio
 	return pool.pendingBlockEvaluator.TransactionGroup(txgroupad)
 }
 
+func (pool *TransactionPool) addSingleToPendingBlockEvaluatorOnce(tx transactions.Tx) error {
+	// round verify don't need
+
+	return pool.pendingBlockEvaluator.TransactionSingle(tx, pool.GetApplication())
+}
+
 func (pool *TransactionPool) addToPendingBlockEvaluator(txgroup []transactions.SignedTxn) error {
 	err := pool.addToPendingBlockEvaluatorOnce(txgroup)
 	if err == ledger.ErrNoSpace {
 		pool.numPendingWholeBlocks++
 		pool.pendingBlockEvaluator.ResetTxnBytes()
 		err = pool.addToPendingBlockEvaluatorOnce(txgroup)
+	}
+	return err
+}
+
+func (pool *TransactionPool) addSingleToPendingBlockEvaluator(tx transactions.Tx) error {
+	err := pool.addSingleToPendingBlockEvaluatorOnce(tx)
+	if err == ledger.ErrNoSpace {
+		pool.numPendingWholeBlocks++
+		pool.pendingBlockEvaluator.ResetTxnBytes()
+		err = pool.addSingleToPendingBlockEvaluatorOnce(tx)
 	}
 	return err
 }
@@ -553,4 +660,12 @@ func (pool *TransactionPool) recomputeBlockEvaluator(committedTxIds map[transact
 
 	pool.rememberCommit(true)
 	return
+}
+
+func (pool *TransactionPool) InitApplication(app appinterface.Application) {
+	pool.application = app
+}
+
+func (pool *TransactionPool) GetApplication() appinterface.Application {
+	return pool.application
 }

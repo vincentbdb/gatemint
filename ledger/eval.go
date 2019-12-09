@@ -20,6 +20,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/vincentbdb/go-algorand/node/appinterface"
 
 	"github.com/vincentbdb/go-algorand/config"
 	"github.com/vincentbdb/go-algorand/crypto"
@@ -466,7 +467,15 @@ func (eval *BlockEvaluator) TransactionGroup(txads []transactions.SignedTxnWithA
 	return eval.transactionGroup(txads, true)
 }
 
-// transactionGroup tentatively executes a group of transactions as part of this block evaluation.
+// TransactionGroup tentatively adds a new transaction group as part of this block evaluation.
+// If the transaction group cannot be added to the block without violating some constraints,
+// an error is returned and the block evaluator state is unchanged.
+func (eval *BlockEvaluator) TransactionSingle(tx transactions.Tx, proxyApp appinterface.Application) error {
+	return eval.transactionSingle(tx, true, proxyApp)
+}
+
+// transactionGroup tentatively executes a gro
+// up of transactions as part of this block evaluation.
 // If the transaction group cannot be added to the block without violating some constraints,
 // an error is returned and the block evaluator state is unchanged.  If remember is true,
 // the transaction group is added to the block evaluator state; otherwise, the block evaluator
@@ -538,6 +547,67 @@ func (eval *BlockEvaluator) transactionGroup(txgroup []transactions.SignedTxnWit
 	return nil
 }
 
+// transactionGroup tentatively executes a group of transactions as part of this block evaluation.
+// If the transaction group cannot be added to the block without violating some constraints,
+// an error is returned and the block evaluator state is unchanged.  If remember is true,
+// the transaction group is added to the block evaluator state; otherwise, the block evaluator
+// is not modified and does not remember this transaction group.
+func (eval *BlockEvaluator) transactionSingle(tx transactions.Tx, remember bool, proxyApp appinterface.Application) error {
+	// Nothing to do if there are no transactions.
+	//var txibs []transactions.SignedTxnInBlock
+	var groupTxBytes int
+
+	var txsib transactions.SignedSingleTxnInBlock
+
+	cow := eval.state.child()
+
+	//todo transaction group is not need
+
+	{
+		//add checkTx , and show some reason to check tx
+		{
+			// check isAlive tx, round and genesis judge
+			// Transaction already in the ledger?
+			// looks reasonable on its own
+			// Properly signed
+			// Verify that tx groups
+			// needCheckLsig ?
+			// cow balances isValidate
+			// Move MicroAlgos from one account to another, doing all necessary overflow checking (convenience method) and change account delta
+			// existing block applying data check
+			// Check if the transaction fits in the block
+			// besides
+			// Check if any affected accounts dipped below MinBalance (unless they are
+			// completely zero, which means the account will be deleted.)
+
+			// todo Remember this txn (below need to consider later)
+			// cow.addTx(txn.Txn)
+
+			responseCheckTx := proxyApp.CheckTx(appinterface.RequestCheckTx{Tx: tx, Type: appinterface.CheckTxType_New})
+			if !responseCheckTx.IsOK() {
+				return errors.New("proxy app check tx not valid")
+			}
+
+		}
+		txsib = transactions.SignedSingleTxnInBlock{Tx: tx, HasGenesisID: true, HasGenesisHash: true}
+		if eval.validate {
+			groupTxBytes += len(protocol.Encode(txsib))
+			if eval.blockTxBytes+groupTxBytes > eval.proto.MaxTxnBytesPerBlock {
+				return ErrNoSpace
+			}
+		}
+	}
+
+	if remember {
+		//eval.block.Payset = append(eval.block.Payset, txsib)
+		eval.block.PayProxySet = append(eval.block.PayProxySet, txsib)
+		eval.blockTxBytes += groupTxBytes
+		cow.commitToParent()
+	}
+
+	return nil
+}
+
 // transaction tentatively executes a new transaction as part of this block evaluation.
 // If the transaction cannot be added to the block without violating some constraints,
 // an error is returned and the block evaluator state is unchanged.
@@ -578,7 +648,6 @@ func (eval *BlockEvaluator) transaction(txn transactions.SignedTxn, ad transacti
 			if err != nil {
 				return fmt.Errorf("transaction %v: failed to verify: %v", txn.ID(), err)
 			}
-
 		}
 
 		// Verify that groups are supported.

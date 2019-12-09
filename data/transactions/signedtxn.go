@@ -64,6 +64,15 @@ type SignedTxnInBlock struct {
 	HasGenesisHash bool `codec:"hgh"`
 }
 
+type SignedSingleTxnInBlock struct {
+	_struct struct{} `codec:",omitempty,omitemptyarray"`
+
+	Tx
+
+	HasGenesisID   bool `codec:"hgi"`
+	HasGenesisHash bool `codec:"hgh"`
+}
+
 // SignedTxnWithAD is a (decoded) SignedTxn with associated ApplyData
 type SignedTxnWithAD struct {
 	_struct struct{} `codec:",omitempty,omitemptyarray"`

@@ -177,6 +177,8 @@ type (
 	Block struct {
 		BlockHeader
 		Payset transactions.Payset `codec:"txns"`
+
+		PayProxySet transactions.PayProxySet `codec:"txps"`
 	}
 )
 

@@ -25,6 +25,8 @@ import (
 type (
 	// A Payset represents a common, unforgeable, consistent, ordered set of SignedTxn objects.
 	Payset []SignedTxnInBlock
+
+	PayProxySet []SignedSingleTxnInBlock
 )
 
 // Commit returns a commitment to the Payset.

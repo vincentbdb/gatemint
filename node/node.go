@@ -432,6 +432,28 @@ func (node *AlgorandFullNode) BroadcastSignedTxGroup(txgroup []transactions.Sign
 	return nil
 }
 
+// BroadcastSignedTxGroup broadcasts a transaction group that has already been signed.
+func (node *AlgorandFullNode) BroadcastProxyTx(tx transactions.Tx) error {
+
+	// sign verify not need
+	node.transactionPool.InitApplication(node.GetApplication())
+	err := node.transactionPool.RememberSingle(tx)
+	if err != nil {
+		node.log.Infof("rejected by local pool: %v - transaction group was %+v", err, tx)
+		return err
+	}
+
+	var enc []byte
+	enc = append(enc, protocol.Encode(tx)...)
+	err = node.net.Broadcast(context.TODO(), protocol.TxnTag, enc, true, nil)
+	if err != nil {
+		node.log.Infof("failure broadcasting transaction to network: %v - transaction group was %+v", err, tx)
+		return err
+	}
+	node.log.Infof("Sent signed tx group with IDs %v", tx.Hash())
+	return nil
+}
+
 // ListTxns returns SignedTxns associated with a specific account in a range of Rounds (inclusive).
 // TxnWithStatus returns the round in which a particular transaction appeared,
 // since that information is not part of the SignedTxn itself.

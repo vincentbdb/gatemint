@@ -144,9 +144,9 @@ var Routes = lib.Routes{
 
 	lib.Route{
 		Name:        "raw-transaction-test",
-		Method:      "GET",
+		Method:      "POST",
 		Path:        "/transactions-test",
-		HandlerFunc: handlers.SendTest,
+		HandlerFunc: handlers.RawTransactionTest,
 	},
 
 	lib.Route{
