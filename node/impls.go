@@ -109,7 +109,15 @@ func (i *blockFactoryImpl) AssembleBlock(round basics.Round, deadline time.Time)
 	dt := time.Now().Sub(start)
 	stats.AssembleBlockStats.Nanoseconds = dt.Nanoseconds()
 
-	lvb, err := eval.GenerateBlock()
+	// todo need to change
+	// later need to delete GenerateBlock
+	var lvb *ledger.ValidatedBlock
+	if eval.GetEvalBlock() != nil && eval.GetEvalBlock().PayProxySet != nil && len(eval.GetEvalBlock().PayProxySet) > 0 {
+		lvb, err = eval.GenerateProxyBlock()
+	} else {
+		lvb, err = eval.GenerateBlock()
+	}
+
 	if err != nil {
 		return nil, fmt.Errorf("could not make proposals at round %d: could not finish evaluator: %v", round, err)
 	}

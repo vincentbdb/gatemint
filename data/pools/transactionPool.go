@@ -296,6 +296,17 @@ func (pool *TransactionPool) add(txgroup []transactions.SignedTxn) error {
 	return pool.ingest(txgroup, params)
 }
 
+// add tries to add the transaction group to the pool, bypassing the fee
+// priority checks.
+func (pool *TransactionPool) addProxy(tx transactions.Tx) error {
+	params := poolIngestParams{
+		checkFee:   false,
+		preferSync: false,
+	}
+	return pool.ingestSingle(tx, params)
+
+}
+
 // ingest checks whether a transaction group could be remembered in the pool,
 // and stores this transaction if valid.
 //
@@ -658,7 +669,37 @@ func (pool *TransactionPool) recomputeBlockEvaluator(committedTxIds map[transact
 		}
 	}
 
+	// todo need to delete this methon later
 	pool.rememberCommit(true)
+
+	pool.pendingProxyMu.RLock()
+	txProxys := pool.pendingProxyTxGroups
+	pool.pendingProxyMu.RUnlock()
+
+	for _, txProxy := range txProxys {
+		if _, alreadyCommitted := committedTxIds[txProxy.ComputeID()]; alreadyCommitted {
+			continue
+		}
+		err := pool.addProxy(txProxy)
+		//todo
+		// if add to pool faild, need to add handler
+
+		//if err != nil {
+		//	pool.statusCache.put(tx, err.Error())
+		//	switch err.(type) {
+		//	case transactions.TxnDeadError:
+		//		stats.ExpiredCount++
+		//	default:
+		//		stats.RemovedInvalidCount++
+		//	}
+		//}
+
+		if err != nil {
+			fmt.Println(err.Error(), err)
+		}
+	}
+
+	pool.rememberProxyCommit(true)
 	return
 }
 

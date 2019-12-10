@@ -785,6 +785,20 @@ func (eval *BlockEvaluator) endOfBlock() error {
 	return nil
 }
 
+// Call "endOfProxyBlock" after all the block's rewards and transactions are processed. Applies any deferred balance updates.
+func (eval *BlockEvaluator) endOfProxyBlock() error {
+	if eval.generate {
+		eval.block.TxnRoot = eval.block.PayProxySet.Commit(eval.proto.PaysetCommitFlat)
+		if eval.proto.TxnCounter {
+			eval.block.TxnCounter = eval.state.txnCounter()
+		} else {
+			eval.block.TxnCounter = 0
+		}
+	}
+
+	return nil
+}
+
 // FinalValidation does the validation that must happen after the block is built and all state updates are computed
 func (eval *BlockEvaluator) finalValidation() error {
 	if eval.validate {
@@ -804,6 +818,53 @@ func (eval *BlockEvaluator) finalValidation() error {
 	}
 
 	return nil
+}
+
+// FinalProxyValidation does the validation that must happen after the block is built and all state updates are computed
+func (eval *BlockEvaluator) finalProxyValidation() error {
+	if eval.validate {
+		// check commitments
+		txnRoot := eval.block.PayProxySet.Commit(eval.proto.PaysetCommitFlat)
+		if txnRoot != eval.block.TxnRoot {
+			return fmt.Errorf("txn root wrong: %v != %v", txnRoot, eval.block.TxnRoot)
+		}
+
+		var expectedTxnCount uint64
+		if eval.proto.TxnCounter {
+			expectedTxnCount = eval.state.txnCounter()
+		}
+		if eval.block.TxnCounter != expectedTxnCount {
+			return fmt.Errorf("txn count wrong: %d != %d", eval.block.TxnCounter, expectedTxnCount)
+		}
+	}
+
+	return nil
+}
+
+// GenerateBlock produces a complete block from the BlockEvaluator.  This is
+// used during proposal to get an actual block that will be proposed, after
+// feeding in tentative transactions into this block evaluator.
+func (eval *BlockEvaluator) GenerateProxyBlock() (*ValidatedBlock, error) {
+	if !eval.generate {
+		logging.Base().Panicf("GenerateBlock() called but generate is false")
+	}
+
+	err := eval.endOfProxyBlock()
+	if err != nil {
+		return nil, err
+	}
+
+	err = eval.finalProxyValidation()
+	if err != nil {
+		return nil, err
+	}
+
+	vb := ValidatedBlock{
+		blk:   eval.block,
+		delta: eval.state.mods,
+		aux:   *eval.aux,
+	}
+	return &vb, nil
 }
 
 // GenerateBlock produces a complete block from the BlockEvaluator.  This is
@@ -830,6 +891,12 @@ func (eval *BlockEvaluator) GenerateBlock() (*ValidatedBlock, error) {
 		aux:   *eval.aux,
 	}
 	return &vb, nil
+}
+
+// todo
+// unsafe just for temp test , don't use it
+func (eval *BlockEvaluator) GetEvalBlock() *bookkeeping.Block {
+	return &eval.block
 }
 
 func (l *Ledger) eval(ctx context.Context, blk bookkeeping.Block, aux *evalAux, validate bool, txcache VerifiedTxnCache, executionPool execpool.BacklogPool) (StateDelta, evalAux, error) {
